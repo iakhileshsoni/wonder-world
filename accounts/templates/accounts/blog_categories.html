@@ -1,0 +1,27 @@
+{% extends 'accounts/main.html ' %}
+{% block content %}
+
+
+<div class="container">
+    <div class="categories">
+        <h2>Categories</h2>
+        <ul>
+            {% for category in categories %}
+            <li><a href="{% url 'categories' %}">{{ category.name }}</a></li>
+            {% endfor %}
+        </ul>
+    </div>
+
+    <div class="blog-posts">
+        <h1>Blog Posts</h1>
+        {% for blog in blogs %}
+        {% if blog %}
+        <h3><a href="{% url 'blogs' %}">{{ blog }}</a></h3>
+        <p>{{ blog.content }}</p>
+        {% endif %}
+        {% endfor %}
+    </div>
+</div>
+
+
+{% endblock %}
